@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Scroll from 'react-scroll'
-import { queryFetcher } from 'gql/apolloClient';
+import { queryFetcher, getLatency } from 'gql/apolloClient';
 import { ALL_COFFEES_QUERY } from 'gql/gqlQueries';
 
 import useSWR from 'swr'
@@ -64,6 +64,7 @@ export default function CoffeeMenu(props) {
           )}
         </nav>
       )}
+      <p>Latency: {getLatency() ? `${Math.round(getLatency()*100)/100}ms` : "N/A"}</p>
     </>
   )
 }
